@@ -12,6 +12,7 @@ public class BallStop : MonoBehaviour
         if (collision.gameObject.CompareTag("Ball"))
         {
             rbBall.velocity = Vector2.zero;
+            ballController.canInteract = true;
         }
     }
 }

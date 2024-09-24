@@ -132,6 +132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 220308971}
   - component: {fileID: 220308972}
+  - component: {fileID: 220308973}
+  - component: {fileID: 220308974}
   m_Layer: 3
   m_Name: Model
   m_TagString: Untagged
@@ -206,6 +208,65 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &220308973
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220308970}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &220308974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220308970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1622bbec93b0534e964d3d0f5c10656, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rbBall: {fileID: 1662626659}
+  ballController: {fileID: 1662626660}
 --- !u!1 &271705010
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,8 +845,8 @@ Transform:
   m_GameObject: {fileID: 1662626655}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4769, y: -0.5979, z: 0}
-  m_LocalScale: {x: 0.1591755, y: 0.1591755, z: 0.1591755}
+  m_LocalPosition: {x: -0.5778, y: -4.37, z: 0}
+  m_LocalScale: {x: 0.20350587, y: 0.20350587, z: 0.20350587}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1654775787}
@@ -869,8 +930,8 @@ MonoBehaviour:
   rbBall: {fileID: 1662626659}
   didClick: 0
   didDrag: 0
-  canInteract: 0
-  constantSpeed: 5
+  canInteract: 1
+  constantSpeed: 7
   arrowPrefab: {fileID: 1654775786}
   lineRenderer: {fileID: 0}
   ballTransform: {fileID: 1027861174}
