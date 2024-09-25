@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
+    public enum ballState
+    {
+        aim,
+        fire,
+        wait,
+        endShot,
+    }
+
+    public ballState currentBallState;
     public Rigidbody2D rbBall;
     private Vector2 mouseStartPosition;
     private Vector2 mouseEndPosition;
