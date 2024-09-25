@@ -16,9 +16,6 @@ public class BallController : MonoBehaviour
     public Rigidbody2D rbBall;
     private Vector2 mouseStartPosition;
     private Vector2 mouseEndPosition;
-    public bool didClick;
-    public bool didDrag;
-    public bool canInteract;
     private float ballVelocityX;
     private float ballVelocityY;
     public float constantSpeed;
@@ -38,19 +35,41 @@ public class BallController : MonoBehaviour
         arrowHeadInstance.SetActive(false); // Ẩn nó ban đầu
     }
 
+    private void Start()
+    {
+        currentBallState = ballState.aim;
+    }
+
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && canInteract)
+        switch (currentBallState)
         {
-            MouseClicked();
-        }
-        if (Input.GetMouseButton(0) && didClick && canInteract)
-        {
-            MouseDragged();
-        }
-        if (Input.GetMouseButtonUp(0) && canInteract)
-        {
-            ReleaseMouse();
+            case ballState.aim:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    MouseClicked();
+                }
+                if (Input.GetMouseButton(0))
+                {
+                    MouseDragged();
+                }
+                if (Input.GetMouseButtonUp(0))
+                {
+                    ReleaseMouse();
+                }
+                break;
+
+            case ballState.fire:
+                break;
+
+            case ballState.wait:
+                break;
+
+            case ballState.endShot:
+                break;
+
+            default:
+                break;
         }
     }
 
@@ -59,13 +78,10 @@ public class BallController : MonoBehaviour
         mouseStartPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         lineRenderer.enabled = true; // Hiển thị line
         arrowHeadInstance.SetActive(true); // Hiển thị hình tròn
-        didClick = true;
     }
 
     public void MouseDragged()
     {
-        didDrag = true;
-
         Vector2 tempMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 direction = (mouseStartPosition - tempMousePosition).normalized;
@@ -114,10 +130,8 @@ public class BallController : MonoBehaviour
         {
             return;
         }
+        currentBallState = ballState.fire;
 
-        didClick = false;
-        didDrag = false;
-        canInteract = false;
         arrowHeadInstance.SetActive(false);
         lineRenderer.enabled = false;
     }
