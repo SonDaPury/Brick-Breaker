@@ -5,12 +5,9 @@ using UnityEngine;
 public class BrickColorController : MonoBehaviour
 {
     public Gradient gradient;
-    private SpriteRenderer spriteRenderer;
 
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
 
     private void Start()
     {
