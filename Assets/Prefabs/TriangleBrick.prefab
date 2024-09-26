@@ -333,9 +333,10 @@ GameObject:
   - component: {fileID: 9046166906739290434}
   - component: {fileID: 1620741604432701686}
   - component: {fileID: 575007362541448396}
+  - component: {fileID: 4314374647932631704}
   m_Layer: 0
   m_Name: TriangleBrick
-  m_TagString: Untagged
+  m_TagString: TriangleBrick
   m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -413,6 +414,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   brickHealth: 10
+  gameManager: {fileID: 0}
   brickHealthText: {fileID: 1927504380576388200}
 --- !u!60 &1620741604432701686
 PolygonCollider2D:
@@ -494,3 +496,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
+--- !u!114 &4314374647932631704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294891192611226166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9b310aec519c846997ca4debacf03c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0

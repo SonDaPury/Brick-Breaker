@@ -26,11 +26,12 @@ public class BallController : MonoBehaviour
     public GameObject arrowHeadPrefab;
     private GameObject arrowHeadInstance;
     public float circleOffset = 0.2f;
+    public GameManager gameManager;
 
     private void Awake()
     {
         lineRenderer = arrowPrefab.GetComponent<LineRenderer>(); // Lấy LineRenderer của Ball
-
+        gameManager = FindAnyObjectByType<GameManager>();
         arrowHeadInstance = Instantiate(arrowHeadPrefab); // Khởi tạo hình tròn
         arrowHeadInstance.SetActive(false); // Ẩn nó ban đầu
     }
@@ -63,9 +64,18 @@ public class BallController : MonoBehaviour
                 break;
 
             case ballState.wait:
+                currentBallState = ballState.endShot;
                 break;
 
             case ballState.endShot:
+                foreach (var brick in gameManager.bricksInScene)
+                {
+                    brick.GetComponent<BrickMovementController>().currentState =
+                        BrickMovementController.brickState.move;
+                }
+
+                gameManager.PlaceBricks();
+                currentBallState = ballState.aim;
                 break;
 
             default:

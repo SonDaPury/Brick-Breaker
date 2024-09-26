@@ -25,7 +25,10 @@ public class BrickHealthManager : MonoBehaviour
     {
         brickHealthText.text = " " + brickHealth.ToString();
 
-        if (brickHealth <= 0) { }
+        if (brickHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void TakeDamage(int damageToTake)

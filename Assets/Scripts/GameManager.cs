@@ -5,10 +5,17 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public List<Transform> spawnPoints;
+    public List<GameObject> bricksInScene;
     public GameObject triangleBrick;
     public GameObject squareBrick;
+    private ObjectPool objectPool;
     public int numberOfBricksToStart;
     public int level;
+
+    private void Awake()
+    {
+        objectPool = FindAnyObjectByType<ObjectPool>();
+    }
 
     private void Start()
     {
@@ -20,11 +27,47 @@ public class GameManager : MonoBehaviour
 
             if (brickToCreate == 0)
             {
-                Instantiate(squareBrick, spawnPoint.position, Quaternion.identity);
+                bricksInScene.Add(
+                    Instantiate(squareBrick, spawnPoint.position, Quaternion.identity)
+                );
             }
             else if (brickToCreate == 1)
             {
-                Instantiate(triangleBrick, spawnPoint.position, Quaternion.identity);
+                bricksInScene.Add(
+                    Instantiate(triangleBrick, spawnPoint.position, Quaternion.identity)
+                );
+            }
+        }
+    }
+
+    public void PlaceBricks()
+    {
+        level++;
+        foreach (Transform spawnPoint in spawnPoints)
+        {
+            int brickToCreate = Random.Range(0, 3);
+
+            if (brickToCreate == 0)
+            {
+                GameObject brick = objectPool.GetPooledObject("SquareBrick");
+                bricksInScene.Add(brick);
+                if (brick != null)
+                {
+                    brick.transform.position = spawnPoint.position;
+                    brick.transform.rotation = Quaternion.identity;
+                    brick.SetActive(true);
+                }
+            }
+            else if (brickToCreate == 1)
+            {
+                GameObject brick = objectPool.GetPooledObject("TriangleBrick");
+                bricksInScene.Add(brick);
+                if (brick != null)
+                {
+                    brick.transform.position = spawnPoint.position;
+                    brick.transform.rotation = Quaternion.identity;
+                    brick.SetActive(true);
+                }
             }
         }
     }
