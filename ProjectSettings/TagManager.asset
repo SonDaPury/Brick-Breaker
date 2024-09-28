@@ -7,6 +7,8 @@ TagManager:
   - Ball
   - SquareBrick
   - TriangleBrick
+  - ExtraBall
+  - ExtraBallPowerup
   layers:
   - Default
   - TransparentFX

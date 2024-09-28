@@ -6,11 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public List<Transform> spawnPoints;
     public List<GameObject> bricksInScene;
+    public List<GameObject> ballsInScene;
     public GameObject triangleBrick;
     public GameObject squareBrick;
+    public GameObject extraBallPowerup;
     private ObjectPool objectPool;
     public int numberOfBricksToStart;
     public int level;
+    public int numberOfExtraBallsInRow = 0;
 
     private void Awake()
     {
@@ -37,7 +40,17 @@ public class GameManager : MonoBehaviour
                     Instantiate(triangleBrick, spawnPoint.position, Quaternion.identity)
                 );
             }
+            else if (brickToCreate == 2 && numberOfExtraBallsInRow == 0)
+            {
+                bricksInScene.Add(
+                    Instantiate(extraBallPowerup, spawnPoint.position, Quaternion.identity)
+                );
+
+                numberOfExtraBallsInRow++;
+            }
         }
+
+        numberOfExtraBallsInRow = 0;
     }
 
     public void PlaceBricks()

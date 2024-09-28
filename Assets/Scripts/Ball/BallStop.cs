@@ -7,6 +7,12 @@ public class BallStop : MonoBehaviour
     public Rigidbody2D rbBall;
     public BallController ballController;
     public int collisionCount;
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
 
     private void Start()
     {
@@ -24,6 +30,11 @@ public class BallStop : MonoBehaviour
             {
                 ballController.currentBallState = BallController.ballState.wait;
             }
+        }
+        if (collision.gameObject.CompareTag("ExtraBall"))
+        {
+            gameManager.ballsInScene.Remove(collision.gameObject);
+            collision.gameObject.SetActive(false);
         }
     }
 }

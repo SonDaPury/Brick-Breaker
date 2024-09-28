@@ -16,6 +16,8 @@ public class BallController : MonoBehaviour
     public Rigidbody2D rbBall;
     private Vector2 mouseStartPosition;
     private Vector2 mouseEndPosition;
+    public Vector3 ballLaunchPosition;
+    public Vector2 tempVelocity;
     private float ballVelocityX;
     private float ballVelocityY;
     public float constantSpeed;
@@ -39,6 +41,7 @@ public class BallController : MonoBehaviour
     private void Start()
     {
         currentBallState = ballState.aim;
+        gameManager.ballsInScene.Add(gameObject);
     }
 
     private void Update()
@@ -64,7 +67,11 @@ public class BallController : MonoBehaviour
                 break;
 
             case ballState.wait:
-                currentBallState = ballState.endShot;
+                // currentBallState = ballState.endShot;
+                if (gameManager.ballsInScene.Count == 1)
+                {
+                    currentBallState = ballState.endShot;
+                }
                 break;
 
             case ballState.endShot:
@@ -133,13 +140,15 @@ public class BallController : MonoBehaviour
         ballVelocityX = mouseStartPosition.x - mouseEndPosition.x;
         ballVelocityY = mouseStartPosition.y - mouseEndPosition.y;
 
-        Vector2 tempVelocity = new Vector2(ballVelocityX, ballVelocityY).normalized;
+        tempVelocity = new Vector2(ballVelocityX, ballVelocityY).normalized;
         rbBall.velocity = constantSpeed * tempVelocity;
 
         if (rbBall.velocity == Vector2.zero)
         {
             return;
         }
+
+        ballLaunchPosition = transform.position;
         currentBallState = ballState.fire;
 
         arrowHeadInstance.SetActive(false);
