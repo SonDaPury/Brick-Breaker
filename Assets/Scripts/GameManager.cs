@@ -82,6 +82,19 @@ public class GameManager : MonoBehaviour
                     brick.SetActive(true);
                 }
             }
+            else if (brickToCreate == 2 && numberOfExtraBallsInRow == 0)
+            {
+                GameObject ball = objectPool.GetPooledObject("ExtraBallPowerup");
+                bricksInScene.Add(ball);
+                if (ball != null)
+                {
+                    ball.transform.position = spawnPoint.position;
+                    ball.transform.rotation = Quaternion.identity;
+                    ball.SetActive(true);
+                }
+                numberOfExtraBallsInRow++;
+            }
         }
+        numberOfExtraBallsInRow = 0;
     }
 }
