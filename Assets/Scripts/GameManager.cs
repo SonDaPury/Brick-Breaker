@@ -61,22 +61,57 @@ public class GameManager : MonoBehaviour
     public void PlaceBricks()
     {
         level++;
-
         int targetsCount =
             level < 10 ? 3
             : level < 50 ? 4
             : level < 100 ? 5
             : 6;
-
         spawnTargets = GetRandomSpawnPoint(spawnPoints, targetsCount);
 
         bool hasExtraBall = false;
+        bool hasRowBreaker = false;
+        bool hasColumnBreaker = false;
+        bool hasSplitBall = false;
 
         foreach (Transform spawnPoint in spawnTargets)
         {
-            int brickToCreate = Random.Range(0, 2);
-
-            if (!hasExtraBall)
+            if (!hasRowBreaker && Random.Range(0, 101) < 10)
+            {
+                GameObject rowBreaker = objectPool.GetPooledObject("RowBreakerPowerup");
+                bricksInScene.Add(rowBreaker);
+                if (rowBreaker != null)
+                {
+                    rowBreaker.transform.position = spawnPoint.position;
+                    rowBreaker.transform.rotation = Quaternion.identity;
+                    rowBreaker.SetActive(true);
+                    hasRowBreaker = true;
+                }
+            }
+            else if (!hasColumnBreaker && Random.Range(0, 101) < 10)
+            {
+                GameObject columnBreaker = objectPool.GetPooledObject("ColumnBreakerPowerup");
+                bricksInScene.Add(columnBreaker);
+                if (columnBreaker != null)
+                {
+                    columnBreaker.transform.position = spawnPoint.position;
+                    columnBreaker.transform.rotation = Quaternion.identity;
+                    columnBreaker.SetActive(true);
+                    hasColumnBreaker = true;
+                }
+            }
+            else if (!hasSplitBall && Random.Range(0, 101) < 100)
+            {
+                GameObject splitBall = objectPool.GetPooledObject("SplitBallPowerup");
+                bricksInScene.Add(splitBall);
+                if (splitBall != null)
+                {
+                    splitBall.transform.position = spawnPoint.position;
+                    splitBall.transform.rotation = Quaternion.identity;
+                    splitBall.SetActive(true);
+                    hasSplitBall = true;
+                }
+            }
+            else if (!hasExtraBall)
             {
                 GameObject ball = objectPool.GetPooledObject("ExtraBallPowerup");
                 bricksInScene.Add(ball);
@@ -90,6 +125,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                int brickToCreate = Random.Range(0, 2);
                 if (brickToCreate == 0)
                 {
                     GameObject brick = objectPool.GetPooledObject("SquareBrick");
@@ -114,27 +150,22 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
         numberOfExtraBallsInRow = 0;
     }
 
     public List<Transform> GetRandomSpawnPoint(List<Transform> spawnPoints, int count)
     {
         List<Transform> randomSpawnPoints = new();
-
         count = Mathf.Min(count, spawnPoints.Count);
-
         while (randomSpawnPoints.Count < count)
         {
             int randomIndex = Random.Range(0, spawnPoints.Count);
             Transform randomSpawnPoint = spawnPoints[randomIndex];
-
             if (!randomSpawnPoints.Contains(randomSpawnPoint))
             {
                 randomSpawnPoints.Add(randomSpawnPoint);
             }
         }
-
         return randomSpawnPoints;
     }
 }

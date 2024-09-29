@@ -760,6 +760,7 @@ MonoBehaviour:
   - {fileID: 968854557}
   - {fileID: 567884810}
   - {fileID: 1411637511}
+  spawnTargets: []
   bricksInScene: []
   ballsInScene: []
   triangleBrick: {fileID: 4294891192611226166, guid: 8ad7c8d7903500c4ebcd61669e2d0524, type: 3}
@@ -2194,6 +2195,12 @@ MonoBehaviour:
     objectToPool: {fileID: 9046194486790368067, guid: 53b694848f121e14f81822291ef47a16, type: 3}
   - amountToPool: 50
     objectToPool: {fileID: 6897905170199522385, guid: 4899ee54c7843c645a9e4baa49e53685, type: 3}
+  - amountToPool: 30
+    objectToPool: {fileID: 782903245605789069, guid: d3d93907baee769409a9f3840a7bc072, type: 3}
+  - amountToPool: 30
+    objectToPool: {fileID: 3920537188748496530, guid: 056c3c5d33961a2489d9e9633c3afa0b, type: 3}
+  - amountToPool: 30
+    objectToPool: {fileID: 7831100280129996478, guid: 94b04044ecaceac4aa68ecf5f81c6b36, type: 3}
 --- !u!1 &1724649239
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ TagManager:
   - TriangleBrick
   - ExtraBall
   - ExtraBallPowerup
+  - RowBreakerPowerup
+  - ColumnBreakerPowerup
+  - SplitBallPowerup
   layers:
   - Default
   - TransparentFX

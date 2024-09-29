@@ -23,7 +23,7 @@ public class BallController : MonoBehaviour
     private float ballVelocityY;
     public float constantSpeed;
     public GameObject arrowPrefab;
-    public LineRenderer lineRenderer; // LineRenderer của Ball
+    public LineRenderer lineRenderer;
     public Transform ballTransform;
     public LayerMask collisionLayerMask;
     public GameObject arrowHeadPrefab;
@@ -33,10 +33,10 @@ public class BallController : MonoBehaviour
 
     private void Awake()
     {
-        lineRenderer = arrowPrefab.GetComponent<LineRenderer>(); // Lấy LineRenderer của Ball
+        lineRenderer = arrowPrefab.GetComponent<LineRenderer>();
         gameManager = FindAnyObjectByType<GameManager>();
-        arrowHeadInstance = Instantiate(arrowHeadPrefab); // Khởi tạo hình tròn
-        arrowHeadInstance.SetActive(false); // Ẩn nó ban đầu
+        arrowHeadInstance = Instantiate(arrowHeadPrefab);
+        arrowHeadInstance.SetActive(false);
     }
 
     private void Start()
