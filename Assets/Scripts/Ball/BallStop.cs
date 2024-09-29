@@ -8,10 +8,12 @@ public class BallStop : MonoBehaviour
     public BallController ballController;
     public int collisionCount;
     private GameManager gameManager;
+    public ExtraBallManager extraBallManager;
 
     private void Awake()
     {
         gameManager = FindAnyObjectByType<GameManager>();
+        extraBallManager = FindAnyObjectByType<ExtraBallManager>();
     }
 
     private void Start()
@@ -23,6 +25,10 @@ public class BallStop : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball"))
         {
+            extraBallManager.numberOfBallsText.transform.position = extraBallManager
+                .bottomOfBall
+                .position;
+
             collisionCount++;
             rbBall.velocity = Vector2.zero;
 

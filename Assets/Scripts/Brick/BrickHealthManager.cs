@@ -45,6 +45,7 @@ public class BrickHealthManager : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("ExtraBall"))
         {
+            AudioManager.Instance.PlaySoundEffect(0);
             TakeDamage(1);
         }
     }

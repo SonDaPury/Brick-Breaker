@@ -13,6 +13,7 @@ public class ExtraBallManager : MonoBehaviour
     public int numberOfBallsToFire;
     public ObjectPool objectPool;
     public TextMeshProUGUI numberOfBallsText;
+    public Transform bottomOfBall;
 
     private void Start()
     {
@@ -22,13 +23,17 @@ public class ExtraBallManager : MonoBehaviour
         numberOfExtraBalls = 0;
         numberOfBallsToFire = 0;
         numberOfBallsText.text = "x" + 1;
+        numberOfBallsText.transform.position = bottomOfBall.position;
     }
 
     private void Update()
     {
         numberOfBallsText.text = "x" + (numberOfExtraBalls + 1);
 
-        if (ballController.currentBallState == BallController.ballState.fire)
+        if (
+            ballController.currentBallState == BallController.ballState.fire
+            || ballController.currentBallState == BallController.ballState.wait
+        )
         {
             if (numberOfBallsToFire > 0)
             {
@@ -44,7 +49,7 @@ public class ExtraBallManager : MonoBehaviour
                         ball.SetActive(true);
                         gameManager.ballsInScene.Add(ball);
                         ball.GetComponent<Rigidbody2D>().velocity =
-                            12 * ballController.tempVelocity;
+                            10 * ballController.tempVelocity;
                         ballWaitTimeSeconds = ballWaitTime;
                         numberOfBallsToFire--;
                     }

@@ -15,6 +15,7 @@ public class AddBall : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("ExtraBall"))
         {
+            AudioManager.Instance.PlaySoundEffect(1);
             extraBallManager.numberOfExtraBalls++;
             gameObject.SetActive(false);
         }

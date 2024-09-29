@@ -10,6 +10,7 @@ public class BallController : MonoBehaviour
         fire,
         wait,
         endShot,
+        endGame,
     }
 
     public ballState currentBallState;
@@ -67,7 +68,6 @@ public class BallController : MonoBehaviour
                 break;
 
             case ballState.wait:
-                // currentBallState = ballState.endShot;
                 if (gameManager.ballsInScene.Count == 1)
                 {
                     currentBallState = ballState.endShot;
@@ -83,6 +83,9 @@ public class BallController : MonoBehaviour
 
                 gameManager.PlaceBricks();
                 currentBallState = ballState.aim;
+                break;
+
+            case ballState.endGame:
                 break;
 
             default:

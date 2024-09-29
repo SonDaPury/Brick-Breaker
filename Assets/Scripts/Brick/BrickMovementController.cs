@@ -13,6 +13,12 @@ public class BrickMovementController : MonoBehaviour
     public brickState currentState;
     private bool hasMoved;
 
+    private void OnEnable()
+    {
+        hasMoved = false;
+        currentState = brickState.stop;
+    }
+
     private void Start()
     {
         hasMoved = false;
@@ -30,6 +36,7 @@ public class BrickMovementController : MonoBehaviour
         {
             if (hasMoved == false)
             {
+                AudioManager.Instance.PlaySoundEffect(2);
                 transform.position = new Vector2(transform.position.x, transform.position.y - 1);
                 currentState = brickState.stop;
                 hasMoved = true;
