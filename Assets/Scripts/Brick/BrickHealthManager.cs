@@ -21,6 +21,11 @@ public class BrickHealthManager : MonoBehaviour
         brickHealth = gameManager.level;
     }
 
+    private void OnEnable()
+    {
+        brickHealth = gameManager.level;
+    }
+
     private void Update()
     {
         brickHealthText.text = " " + brickHealth.ToString();
@@ -38,7 +43,7 @@ public class BrickHealthManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("ExtraBall"))
         {
             TakeDamage(1);
         }

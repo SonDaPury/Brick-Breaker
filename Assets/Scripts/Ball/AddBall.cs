@@ -13,7 +13,7 @@ public class AddBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Ball"))
+        if (collision.gameObject.CompareTag("Ball") || collision.gameObject.CompareTag("ExtraBall"))
         {
             extraBallManager.numberOfExtraBalls++;
             gameObject.SetActive(false);
