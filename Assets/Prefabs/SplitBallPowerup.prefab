@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8260438196598663578}
   - component: {fileID: -4546085560730409508}
   - component: {fileID: 6169124664589902936}
+  - component: {fileID: 7487053530426868606}
   m_Layer: 0
   m_Name: SplitBallPowerup
   m_TagString: SplitBallPowerup
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.1353, y: 2.0947, z: 690.15564}
-  m_LocalScale: {x: 0.38478506, y: 0.38478506, z: 0.38478506}
+  m_LocalScale: {x: 0.30403486, y: 0.30403486, z: 0.30403486}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 47f0b4951d539864f9294089101b57ff, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ac81feba87b63584f8546dcda6bcc497, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.83, y: 0.83}
+  m_Size: {x: 1.07, y: 1.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -134,3 +135,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.415
+--- !u!114 &7487053530426868606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7831100280129996478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f973f3d7938555b429c1588b9492fcbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

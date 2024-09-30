@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public void PlaceBricks()
     {
         level++;
+
         int targetsCount =
             level < 10 ? 3
             : level < 50 ? 4
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
 
         foreach (Transform spawnPoint in spawnTargets)
         {
-            if (!hasRowBreaker && Random.Range(0, 101) < 10)
+            if (!hasRowBreaker && Random.Range(0, 101) < 5)
             {
                 GameObject rowBreaker = objectPool.GetPooledObject("RowBreakerPowerup");
                 bricksInScene.Add(rowBreaker);
@@ -87,7 +88,7 @@ public class GameManager : MonoBehaviour
                     hasRowBreaker = true;
                 }
             }
-            else if (!hasColumnBreaker && Random.Range(0, 101) < 10)
+            else if (!hasColumnBreaker && Random.Range(0, 101) < 5)
             {
                 GameObject columnBreaker = objectPool.GetPooledObject("ColumnBreakerPowerup");
                 bricksInScene.Add(columnBreaker);
@@ -99,7 +100,7 @@ public class GameManager : MonoBehaviour
                     hasColumnBreaker = true;
                 }
             }
-            else if (!hasSplitBall && Random.Range(0, 101) < 100)
+            else if (!hasSplitBall && Random.Range(0, 101) < 5)
             {
                 GameObject splitBall = objectPool.GetPooledObject("SplitBallPowerup");
                 bricksInScene.Add(splitBall);
@@ -141,6 +142,7 @@ public class GameManager : MonoBehaviour
                 {
                     GameObject brick = objectPool.GetPooledObject("TriangleBrick");
                     bricksInScene.Add(brick);
+
                     if (brick != null)
                     {
                         brick.transform.position = spawnPoint.position;

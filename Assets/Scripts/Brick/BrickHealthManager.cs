@@ -36,7 +36,7 @@ public class BrickHealthManager : MonoBehaviour
         }
     }
 
-    private void TakeDamage(int damageToTake)
+    public void TakeDamage(int damageToTake)
     {
         brickHealth -= damageToTake;
     }

@@ -96,8 +96,8 @@ public class BallController : MonoBehaviour
     public void MouseClicked()
     {
         mouseStartPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        lineRenderer.enabled = true; // Hiển thị line
-        arrowHeadInstance.SetActive(true); // Hiển thị hình tròn
+        lineRenderer.enabled = true;
+        arrowHeadInstance.SetActive(true);
     }
 
     public void MouseDragged()

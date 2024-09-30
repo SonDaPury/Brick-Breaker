@@ -2193,7 +2193,7 @@ MonoBehaviour:
     objectToPool: {fileID: 4294891192611226166, guid: 8ad7c8d7903500c4ebcd61669e2d0524, type: 3}
   - amountToPool: 20
     objectToPool: {fileID: 9046194486790368067, guid: 53b694848f121e14f81822291ef47a16, type: 3}
-  - amountToPool: 50
+  - amountToPool: 100
     objectToPool: {fileID: 6897905170199522385, guid: 4899ee54c7843c645a9e4baa49e53685, type: 3}
   - amountToPool: 30
     objectToPool: {fileID: 782903245605789069, guid: d3d93907baee769409a9f3840a7bc072, type: 3}
