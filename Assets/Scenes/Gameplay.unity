@@ -301,6 +301,8 @@ MonoBehaviour:
   circleOffset: 0.1
   gameManager: {fileID: 0}
   splitBallPowerupPrefab: {fileID: 7831100280129996478, guid: 94b04044ecaceac4aa68ecf5f81c6b36, type: 3}
+  minAngle: -75
+  maxAngle: 75
 --- !u!1 &214023272
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,8 +790,6 @@ MonoBehaviour:
   objectPool: {fileID: 1692429666}
   numberOfBallsText: {fileID: 1793876551}
   bottomOfBall: {fileID: 1429634410}
-  hasCollidedWithBrick: 0
-  splitBallPowerupPrefab: {fileID: 7831100280129996478, guid: 94b04044ecaceac4aa68ecf5f81c6b36, type: 3}
 --- !u!114 &521614198
 MonoBehaviour:
   m_ObjectHideFlags: 0
