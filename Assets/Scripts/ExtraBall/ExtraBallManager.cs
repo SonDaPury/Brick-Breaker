@@ -47,6 +47,8 @@ public class ExtraBallManager : MonoBehaviour
                     {
                         ball.transform.position = ballController.ballLaunchPosition;
                         ball.SetActive(true);
+                        ball.GetComponent<ExtraBall>().StartBallMovement();
+
                         gameManager.ballsInScene.Add(ball);
                         ball.GetComponent<Rigidbody2D>().velocity =
                             10 * ballController.tempVelocity;

@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 6110927151032111409}
   - component: {fileID: 337232865449505237}
   - component: {fileID: 4117122703867608517}
+  - component: {fileID: 4800455336713557393}
   m_Layer: 8
   m_Name: ExtraBall
   m_TagString: ExtraBall
@@ -317,3 +318,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &4800455336713557393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6897905170199522385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47bb22fc02673745a6a7b74f44acb9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasCollidedWithBrick: 0
+  splitBallPowerupPrefab: {fileID: 7831100280129996478, guid: 94b04044ecaceac4aa68ecf5f81c6b36, type: 3}

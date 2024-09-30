@@ -30,6 +30,10 @@ public class BallController : MonoBehaviour
     private GameObject arrowHeadInstance;
     public float circleOffset = 0.2f;
     public GameManager gameManager;
+    public GameObject splitBallPowerupPrefab;
+
+    public float minAngle = -75f;
+    public float maxAngle = 75f;
 
     private void Awake()
     {
@@ -105,6 +109,16 @@ public class BallController : MonoBehaviour
         Vector2 tempMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         Vector2 direction = (mouseStartPosition - tempMousePosition).normalized;
+
+        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+
+        angle = Mathf.Clamp(angle, minAngle, maxAngle);
+
+        direction = new Vector2(
+            Mathf.Sin(angle * Mathf.Deg2Rad),
+            Mathf.Cos(angle * Mathf.Deg2Rad)
+        ).normalized;
+
         RaycastHit2D hit = Physics2D.Raycast(
             ballTransform.position,
             direction,
@@ -127,9 +141,9 @@ public class BallController : MonoBehaviour
             lineRenderer.SetPosition(1, ballTransform.position + (Vector3)(direction * 10));
         }
 
-        // Cập nhật vị trí của hình tròn
         Vector3 adjustedPosition = lineEndPosition - (Vector3)(direction * circleOffset);
         arrowHeadInstance.transform.position = adjustedPosition;
+
         arrowHeadInstance.transform.rotation = Quaternion.Euler(
             0f,
             0f,
@@ -140,10 +154,21 @@ public class BallController : MonoBehaviour
     public void ReleaseMouse()
     {
         mouseEndPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
         ballVelocityX = mouseStartPosition.x - mouseEndPosition.x;
         ballVelocityY = mouseStartPosition.y - mouseEndPosition.y;
 
         tempVelocity = new Vector2(ballVelocityX, ballVelocityY).normalized;
+
+        float angle = Mathf.Atan2(tempVelocity.x, tempVelocity.y) * Mathf.Rad2Deg;
+
+        angle = Mathf.Clamp(angle, minAngle, maxAngle);
+
+        tempVelocity = new Vector2(
+            Mathf.Sin(angle * Mathf.Deg2Rad),
+            Mathf.Cos(angle * Mathf.Deg2Rad)
+        ).normalized;
+
         rbBall.velocity = constantSpeed * tempVelocity;
 
         if (rbBall.velocity == Vector2.zero)

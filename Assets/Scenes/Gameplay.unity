@@ -300,6 +300,7 @@ MonoBehaviour:
   arrowHeadPrefab: {fileID: 5172145458883660680, guid: 92774471440929146861dff9f24addae, type: 3}
   circleOffset: 0.1
   gameManager: {fileID: 0}
+  splitBallPowerupPrefab: {fileID: 7831100280129996478, guid: 94b04044ecaceac4aa68ecf5f81c6b36, type: 3}
 --- !u!1 &214023272
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,7 +399,7 @@ GameObject:
   - component: {fileID: 220308974}
   m_Layer: 3
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -787,6 +788,8 @@ MonoBehaviour:
   objectPool: {fileID: 1692429666}
   numberOfBallsText: {fileID: 1793876551}
   bottomOfBall: {fileID: 1429634410}
+  hasCollidedWithBrick: 0
+  splitBallPowerupPrefab: {fileID: 7831100280129996478, guid: 94b04044ecaceac4aa68ecf5f81c6b36, type: 3}
 --- !u!114 &521614198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2070,10 +2073,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -2.8782992, y: -0.30764675}
-  - {x: -2.8926027, y: 9.215853}
-  - {x: 3.0584867, y: 9.219943}
-  - {x: 3.0469284, y: -0.31935644}
+  - {x: -2.9311512, y: -0.30764675}
+  - {x: -2.9377804, y: 5.0085983}
+  - {x: -2.9324732, y: 9.203335}
+  - {x: -0.0507472, y: 9.308634}
+  - {x: 3.0849123, y: 9.168017}
+  - {x: 3.0591943, y: 4.852712}
+  - {x: 3.0867984, y: -0.33233786}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0

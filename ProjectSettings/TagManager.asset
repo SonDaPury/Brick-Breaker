@@ -12,6 +12,7 @@ TagManager:
   - RowBreakerPowerup
   - ColumnBreakerPowerup
   - SplitBallPowerup
+  - Ground
   layers:
   - Default
   - TransparentFX
